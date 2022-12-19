@@ -1,0 +1,25 @@
+name: Build
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+jobs:
+  deepsource:
+    name: DeepSource
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Install Dependencies
+        run: npm install --legacy-peer-deps
+      - name: Test and coverage
+        run: npm test src/ -- --coverage=true --coverageReporters=cobertura
+      - name: Install Deepsource CI
+        run: curl https://deepsource.io/cli | sh
+      - name: Save coverage in Deepsource
+        run: ./bin/deepsource report --analyzer test-coverage --key javascript --value-file ./coverage/cobertura-coverage.xml
+        env:
+          DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
