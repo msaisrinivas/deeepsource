@@ -11,6 +11,9 @@ exclude_patterns = [
   "/src/index.tsx"
 ]
 
+[[analyzers]]
+name = "test-coverage"
+enabled = true
 
 [[analyzers]]
 name = "javascript"
