@@ -44,9 +44,10 @@
     ]
   },
   "jest": {
-    "coveragePathIgnorePatterns" : [
+    "coveragePathIgnorePatterns": [
       "/src/react-app-env.d.ts",
-      "/src/index.tsx" 
+      "/src/index.tsx",
+      "/src/reportWebVitals.ts"
     ]
   }
 }
