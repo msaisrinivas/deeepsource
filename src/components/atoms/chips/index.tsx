@@ -1,15 +1,20 @@
 import React from "react";
 import { Chip } from "@mui/material";
 
-const Chips = () => {
+interface ChipProps {
+  label: string;
+}
+
+const Chips = ({ label }: ChipProps) => {
   return (
     <Chip
-      label="Hello"
+      label={label}
       color="success"
       sx={{
         width: "10%",
         fontSize: "2rem",
       }}
+      data-testid="custom-chips"
     />
   );
 };
