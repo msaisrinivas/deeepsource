@@ -2,15 +2,6 @@ version = 1
 
 test_patterns = ["/src/components/*/*/*.test.tsx"]
 
-exclude_patterns = [
-  "*/reportWebVitals.ts",
-  "*/setupTests.ts",
-  "*/coverage/**",
-  "*/src/components/*/*.spec.tsx",
-  "*/react-app-env.d.ts",
-  "/src/index.tsx"
-]
-
 [[analyzers]]
 name = "test-coverage"
 enabled = true
