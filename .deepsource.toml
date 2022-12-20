@@ -3,12 +3,12 @@ version = 1
 test_patterns = ["/src/components/*/*/*.test.tsx"]
 
 exclude_patterns = [
-  "*/src/reportWebVitals.ts",
-  "*/src/setupTests.ts",
+  "*/reportWebVitals.ts",
+  "*/setupTests.ts",
   "*/coverage/**",
   "*/src/components/*/*.spec.tsx",
-  "*/src/react-app-env.d.ts",
-  "*/src/index.tsx"
+  "*/react-app-env.d.ts",
+  "/src/index.tsx"
 ]
 
 [[analyzers]]
