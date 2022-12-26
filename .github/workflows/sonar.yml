@@ -2,10 +2,10 @@ name: Build
 on:
   push:
     branches:
-      - master
+      - Sonar
   pull_request:
     branches:
-      - master
+      - Sonar
 jobs:
   sonarcloud:
     name: SonarCloud
