@@ -2,17 +2,15 @@ name: Build
 on:
   push:
     branches:
-      - frontend
+      - master
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    branches:
+      - master
 jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    defaults:
-      run:
-        working-directory: ./frontend
     steps:
       - uses: actions/checkout@v2
         with:
@@ -22,8 +20,6 @@ jobs:
       - name: Test and coverage
         run: npm test src/
       - name: SonarCloud Scan
-        with:
-          projectBaseDir: ./frontend
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
